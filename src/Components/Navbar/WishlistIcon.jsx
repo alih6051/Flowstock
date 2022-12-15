@@ -21,7 +21,7 @@ const WishlistIcon = () => {
           _hover="none"
           _active="none"
         >
-          <VStack VStack spacing={0} paddingTop="5px">
+          <VStack spacing={0} paddingTop="5px">
             <AiOutlineHeart fontSize="30px" />
             <Text fontSize="xs">Wishlist</Text>
           </VStack>

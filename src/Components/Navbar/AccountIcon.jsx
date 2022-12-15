@@ -5,7 +5,6 @@ import {
   Menu,
   MenuButton,
   MenuList,
-  MenuItem,
   Box,
   Button,
   Flex,
@@ -58,7 +57,7 @@ const AccountIcon = () => {
           _hover="none"
           _active="none"
         >
-          <VStack VStack spacing={0} paddingTop="5px">
+          <VStack spacing={0} paddingTop="5px">
             <VscAccount fontSize="30px" />
             <Text fontSize="xs">Account</Text>
           </VStack>
@@ -78,7 +77,7 @@ const AccountIcon = () => {
             <Divider marginY="10px" />
 
             {/* logout div */}
-            <button>Sign Out</button>
+            <button style={{ width: "100%" }}>Sign Out</button>
           </Box>
         </MenuList>
       </Menu>
