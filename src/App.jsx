@@ -2,6 +2,7 @@ import Navbar from "./Components/Navbar/Navbar";
 import AllRoutes from "./routes/AllRoutes";
 import Newsletter from "./Components/Newsletter";
 import CountryBar from "./Components/CountryBar";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <CountryBar />
       <Navbar />
       <AllRoutes />
+      <Footer />
     </div>
   );
 }
