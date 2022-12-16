@@ -17,6 +17,7 @@ const styles = {
   global: {
     body: {
       fontFamily: "'Source Sans Pro', sans-serif",
+      backgroundColor: "#fff",
     },
   },
 };

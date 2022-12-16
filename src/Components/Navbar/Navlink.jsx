@@ -52,6 +52,7 @@ const Navlink = ({ name }) => {
           paddingY="5px"
           onMouseEnter={onOpen}
           onMouseLeave={onClose}
+          onClick={onClose}
         >
           {name}
         </MenuButton>

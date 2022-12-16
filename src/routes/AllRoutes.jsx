@@ -7,10 +7,18 @@ import Wishlist from "../pages/Wishlist";
 import Checkout from "../pages/Checkout";
 import Account from "../pages/Account";
 import SingleProduct from "../pages/SingleProduct";
+import Newsletter from "../Components/Newsletter";
+import Navbar from "../Components/Navbar/Navbar";
+import CountryBar from "../Components/CountryBar";
+import Footer from "../Components/Footer/Footer";
 
 const AllRoutes = () => {
   return (
-    <div>
+    <>
+      <Newsletter />
+      <CountryBar />
+      <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/myaccount" element={<Account />} />
@@ -24,7 +32,9 @@ const AllRoutes = () => {
         <Route path="/lighting/:id" element={<SingleProduct />} />
         <Route path="/kitchen/:id" element={<SingleProduct />} />
       </Routes>
-    </div>
+
+      <Footer />
+    </>
   );
 };
 
