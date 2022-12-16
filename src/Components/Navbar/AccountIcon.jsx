@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   VStack,
   Text,
@@ -10,62 +10,43 @@ import {
   Flex,
   Link,
   Divider,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { VscAccount } from "react-icons/vsc";
-import { Link as LinkRouter } from "react-router-dom";
-import { BsChevronRight } from "react-icons/bs";
-
-const SignInDiv = () => {
-  return (
-    <>
-      <LinkRouter to="/myaccount">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Link as="b" fontSize="lg">
-            Sign in
-          </Link>
-          <BsChevronRight fontSize="18px" />
-        </Flex>
-        <Text fontSize="sm" paddingY="10px">
-          View your account and <br /> check order your status.
-        </Text>
-        <Divider marginBottom="15px" />
-      </LinkRouter>
-      <LinkRouter to="/myaccount">
-        <Flex justifyContent="space-between" alignItems="center">
-          <Link as="b" fontSize="lg">
-            Create an Account
-          </Link>
-          <BsChevronRight fontSize="18px" />
-        </Flex>
-        <Text fontSize="sm" paddingY="10px">
-          Track orders, save items <br /> to lists and more!
-        </Text>
-        <Divider marginBottom="15px" />
-      </LinkRouter>
-    </>
-  );
-};
+import { AuthContext } from "../../Context/AuthContext";
+import SignInDiv from "./SignInDiv";
 
 const AccountIcon = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { authState, handleLogout } = useContext(AuthContext);
+
   return (
     <>
-      <Menu>
+      <Menu isOpen={isOpen}>
         <MenuButton
           as={Button}
           bg="none"
           paddingX="none"
           _hover="none"
           _active="none"
+          onMouseEnter={onOpen}
+          onMouseLeave={onClose}
         >
           <VStack spacing={0} paddingTop="5px">
             <VscAccount fontSize="30px" />
             <Text fontSize="xs">Account</Text>
           </VStack>
         </MenuButton>
-        <MenuList borderRadius={0} maxW="150px">
+        <MenuList
+          onMouseEnter={onOpen}
+          onMouseLeave={onClose}
+          onClick={onClose}
+          borderRadius={0}
+          maxW="150px"
+        >
           <Box paddingX="15px">
             {/* Sign in Div */}
-            {!false && <SignInDiv />}
+            {!authState.isAuth && <SignInDiv />}
 
             {/* body */}
             <Flex flexDirection="column" gap={2}>
@@ -77,7 +58,11 @@ const AccountIcon = () => {
             <Divider marginY="10px" />
 
             {/* logout div */}
-            <button style={{ width: "100%" }}>Sign Out</button>
+            {authState.isAuth && (
+              <button onClick={handleLogout} style={{ width: "100%" }}>
+                Sign Out
+              </button>
+            )}
           </Box>
         </MenuList>
       </Menu>

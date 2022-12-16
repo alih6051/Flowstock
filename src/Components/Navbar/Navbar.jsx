@@ -26,7 +26,7 @@ const Links = [
 const Navbar = () => {
   return (
     <Box style={{ position: "sticky", top: "0", zIndex: "1001" }}>
-      <Container maxW="full" bg="white" paddingY="14px">
+      <Container maxW="full" bg="#fff" paddingY="14px">
         <Flex justifyContent="space-between" alignItems="center">
           <Box>
             <BrandIcon />
@@ -44,7 +44,7 @@ const Navbar = () => {
         </Flex>
       </Container>
       {/* Navigations links */}
-      <Container maxW="full" bg="white" borderY="1px solid #dadcdf">
+      <Container maxW="full" bg="#fff" borderY="1px solid #dadcdf">
         <Flex
           justifyContent="space-between"
           alignItems="center"

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Heading, Grid } from "@chakra-ui/react";
+import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
 import CategoryItem from "./CategoryItem";
 
 const CategoryList = ({ title, list }) => {
@@ -8,11 +8,11 @@ const CategoryList = ({ title, list }) => {
       <Heading as="h3" size="lg" marginBottom="50px">
         {title}
       </Heading>
-      <Grid templateColumns="repeat(6, 1fr)" gap={6}>
+      <SimpleGrid columns={[3, 3, 4, 4, 6, 6]} gap={6}>
         {list.map((item, i) => (
           <CategoryItem key={i} {...item} />
         ))}
-      </Grid>
+      </SimpleGrid>
     </Container>
   );
 };
