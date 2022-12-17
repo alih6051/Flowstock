@@ -2,8 +2,12 @@ import React from "react";
 import { VStack, Text } from "@chakra-ui/react";
 import { BsCart } from "react-icons/bs";
 import { Link as LinkRouter } from "react-router-dom";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
 
 const CartIcon = () => {
+  const { cartTotalItem } = useContext(ShoppingCartContext);
+
   return (
     <LinkRouter to="/cart">
       <button style={{ position: "relative" }}>
@@ -27,7 +31,7 @@ const CartIcon = () => {
             alignContent: "center",
           }}
         >
-          0
+          {cartTotalItem()}
         </div>
       </button>
     </LinkRouter>
