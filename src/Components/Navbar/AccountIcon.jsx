@@ -59,7 +59,12 @@ const AccountIcon = () => {
 
             {/* logout div */}
             {authState.isAuth && (
-              <button onClick={handleLogout} style={{ width: "100%" }}>
+              <button
+                onClick={() => {
+                  handleLogout();
+                }}
+                style={{ width: "100%" }}
+              >
                 Sign Out
               </button>
             )}

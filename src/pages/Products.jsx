@@ -1,12 +1,39 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import { Container, Flex } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 import Header from "../Components/ProductsPage/Header";
-import FilterSection from "../Components/ProductsPage/FilterSection";
-import ProductSection from "../Components/ProductsPage/ProductSection";
+import Loader from "../Components/Loader";
+import Sort from "../Components/ProductsPage/Sort";
+import ProductList from "../Components/ProductsPage/ProductList";
+import Pagination from "../Components/ProductsPage/Pagination";
+import axios from "axios";
 
 const Products = () => {
   let { pathname } = useLocation();
+
+  const [productData, setProductData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [order, setOrder] = useState("");
+  const [page, setPage] = useState(1);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:3000${pathname}?${order}_page=${page}&_limit=20`)
+      .then(({ data }) => {
+        setProductData(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoading(false);
+      });
+  }, [pathname, order, page]);
+
+  const handleOrder = (val) => {
+    setOrder(`_sort=price&_order=${val}&`);
+  };
 
   return (
     <>
@@ -14,10 +41,16 @@ const Products = () => {
 
       {/* Products Page Body */}
       <Container maxW="92%" padding="0" marginBottom="50px">
-        <Flex border="1px solid red" justifyContent="space-between">
-          <FilterSection />
-          <ProductSection />
-        </Flex>
+        {/* Sorting Component */}
+        <Sort handleOrder={handleOrder} />
+
+        {/* Products List */}
+        {loading ? <Loader /> : <ProductList productData={productData} />}
+        <Pagination
+          currentPage={page}
+          total={3}
+          onChange={(val) => setPage(val)}
+        />
       </Container>
     </>
   );
