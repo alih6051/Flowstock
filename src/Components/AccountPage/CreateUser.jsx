@@ -59,7 +59,7 @@ const CreateUser = () => {
       w="100%"
       paddingX="40px"
       paddingY="40px"
-      boxShadow="rgba(0, 0, 0, 0.24) 0px 3px 8px"
+      border="1px solid #dadcdf"
     >
       <Text as="b" color="#444" fontSize="2xl">
         Create Account

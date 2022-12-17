@@ -3,8 +3,31 @@ import { Box, Text, Flex, Select, Button } from "@chakra-ui/react";
 import ReactStars from "react-rating-stars-component";
 import { BsCartPlusFill } from "react-icons/bs";
 import { formatCurrency } from "../../utils/formatCurrency";
+import { useState } from "react";
+import { useContext } from "react";
+import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
 
-const ProductDetail = ({ title, category, rating, price }) => {
+const ProductDetail = ({ title, category, rating, price, id, image }) => {
+  const [quantity, setQuantity] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const { addToCart } = useContext(ShoppingCartContext);
+
+  const handleAddToCart = () => {
+    setLoading(true);
+    let item = {
+      id,
+      title,
+      image,
+      price,
+      rating,
+      quantity: quantity,
+    };
+    setTimeout(() => {
+      addToCart(item);
+      setLoading(false);
+    }, 700);
+  };
+
   return (
     <Box>
       <Text fontSize="xl" marginBottom="10px">
@@ -16,7 +39,13 @@ const ProductDetail = ({ title, category, rating, price }) => {
         Sale {formatCurrency(price)}
       </Text>
       <Flex justifyContent="space-between">
-        <Select placeholder="Quantity: 1" size="sm" width="45%">
+        <Select
+          placeholder="Quantity: 1"
+          value={quantity}
+          onChange={(e) => setQuantity(+e.target.value)}
+          size="sm"
+          width="45%"
+        >
           <option value="1">Quantity: 1</option>
           <option value="2">Quantity: 2</option>
           <option value="3">Quantity: 3</option>
@@ -33,6 +62,8 @@ const ProductDetail = ({ title, category, rating, price }) => {
           size="sm"
           leftIcon={<BsCartPlusFill />}
           width="45%"
+          isLoading={loading}
+          onClick={handleAddToCart}
         >
           Add to Cart
         </Button>
