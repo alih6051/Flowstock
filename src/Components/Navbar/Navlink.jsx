@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  useDisclosure,
-  MenuItem,
-  Menu,
-  MenuButton,
-  MenuList,
-} from "@chakra-ui/react";
+import { useDisclosure, Menu, MenuButton, MenuList } from "@chakra-ui/react";
 import NavlinkDropdown from "./NavlinkDropdown";
 import { Link as LinkRouter } from "react-router-dom";
 

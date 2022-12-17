@@ -1,5 +1,5 @@
 import React from "react";
-import { SimpleGrid, Box } from "@chakra-ui/react";
+import { SimpleGrid } from "@chakra-ui/react";
 import ProductItem from "./ProductItem";
 
 const ProductList = ({ productData }) => {

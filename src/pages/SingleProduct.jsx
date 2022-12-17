@@ -1,7 +1,44 @@
 import React from "react";
+import { useLocation } from "react-router";
+import { Container, SimpleGrid } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import Loader from "../Components/Loader";
+import axios from "axios";
+import ProductImage from "../Components/SingleProductPage/ProductImage";
+import ProductDetail from "../Components/SingleProductPage/ProductDetail";
 
 const SingleProduct = () => {
-  return <div>SingleProduct Page</div>;
+  let { pathname } = useLocation();
+
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get(`http://localhost:3000${pathname}`)
+      .then(({ data }) => {
+        setProduct(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
+      });
+  }, [pathname]);
+
+  return (
+    <Container maxW="60%" color="#262626" marginY="30px" paddingX="0">
+      {loading ? (
+        <Loader />
+      ) : (
+        <SimpleGrid columns={2} spacing={10}>
+          <ProductImage {...product} />
+          <ProductDetail {...product} />
+        </SimpleGrid>
+      )}
+    </Container>
+  );
 };
 
 export default SingleProduct;
