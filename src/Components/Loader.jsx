@@ -7,7 +7,6 @@ const Loader = () => {
       width="100%"
       thickness="4px"
       speed="0.4s"
-      emptyColor="gray.200"
       color="blue.500"
       justifyContent="center"
       alignItems="center"
