@@ -12,6 +12,7 @@ import Navbar from "../Components/Navbar/Navbar";
 import CountryBar from "../Components/CountryBar";
 import Footer from "../Components/Footer/Footer";
 import { useLocation } from "react-router-dom";
+import PrivateRoutes from "./PrivateRoutes";
 
 const AllRoutes = () => {
   const { pathname } = useLocation();
@@ -30,7 +31,14 @@ const AllRoutes = () => {
         <Route path="/lighting" element={<Products />} />
         <Route path="/kitchen" element={<Products />} />
         <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/checkout" element={<Checkout />} />
+        <Route
+          path="/checkout"
+          element={
+            <PrivateRoutes>
+              <Checkout />
+            </PrivateRoutes>
+          }
+        />
         <Route path="/furniture/:id" element={<SingleProduct />} />
         <Route path="/lighting/:id" element={<SingleProduct />} />
         <Route path="/kitchen/:id" element={<SingleProduct />} />
