@@ -11,13 +11,16 @@ import Newsletter from "../Components/Newsletter";
 import Navbar from "../Components/Navbar/Navbar";
 import CountryBar from "../Components/CountryBar";
 import Footer from "../Components/Footer/Footer";
+import { useLocation } from "react-router-dom";
 
 const AllRoutes = () => {
+  const { pathname } = useLocation();
+
   return (
     <>
-      <Newsletter />
-      <CountryBar />
-      <Navbar />
+      {pathname !== "/checkout" && <Newsletter />}
+      {pathname !== "/checkout" && <CountryBar />}
+      {pathname !== "/checkout" && <Navbar />}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -31,9 +34,10 @@ const AllRoutes = () => {
         <Route path="/furniture/:id" element={<SingleProduct />} />
         <Route path="/lighting/:id" element={<SingleProduct />} />
         <Route path="/kitchen/:id" element={<SingleProduct />} />
+        <Route path="*" element={<Home />} />
       </Routes>
 
-      <Footer />
+      {pathname !== "/checkout" && <Footer />}
     </>
   );
 };

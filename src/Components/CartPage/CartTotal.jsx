@@ -4,13 +4,17 @@ import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
 import { useContext } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { calculateDiscount } from "../../utils/calculateDiscount";
+import { useLocation } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 const CartTotal = () => {
-  const { cartTotalItem, cartTotalAmount, discountState, applyDiscount } =
+  const { cartTotalItem, cartTotalAmount, discountState } =
     useContext(ShoppingCartContext);
 
+  const { pathname } = useLocation();
+
   return (
-    <Box border="1px solid #dadcdf" marginTop="10px" padding="20px">
+    <Box border="1px solid #dadcdf" padding="20px">
       <Flex justifyContent="space-between">
         <Text as="b" fontSize="md">
           ({cartTotalItem()}) Items:
@@ -53,17 +57,21 @@ const CartTotal = () => {
           )}
         </Text>
       </Flex>
-      <Button
-        width="100%"
-        bg="#2f3337"
-        color="white"
-        _hover={{ bg: "black" }}
-        _active={{ bg: "black" }}
-        size="lg"
-        marginTop="20px"
-      >
-        Check Out
-      </Button>
+      {pathname !== "/checkout" ? (
+        <RouterLink to="/checkout">
+          <Button
+            width="100%"
+            bg="#2f3337"
+            color="white"
+            _hover={{ bg: "black" }}
+            _active={{ bg: "black" }}
+            size="lg"
+            marginTop="20px"
+          >
+            Check Out
+          </Button>
+        </RouterLink>
+      ) : null}
     </Box>
   );
 };

@@ -67,7 +67,7 @@ const PromoCode = () => {
   };
 
   return (
-    <Accordion allowToggle>
+    <Accordion allowToggle marginBottom="10px">
       <AccordionItem border="1px solid #dadcdf">
         <AccordionButton>
           <Text fontWeight="550" fontSize="xl" flex="1" textAlign="left">

@@ -1,10 +1,11 @@
 import { createContext, useState } from "react";
 import { isAlreadyAdded } from "../utils/isAlreadyAdded";
+import useLocalStorage from "../hooks/useLocalStorage";
 
 export const ShoppingCartContext = createContext();
 
 export default function ShoppingCartContextProvider({ children }) {
-  const [shoppingCart, setShoppingCart] = useState([]);
+  const [shoppingCart, setShoppingCart] = useLocalStorage("flowstockCart", []);
   const [discountState, setDiscountState] = useState({
     isDiscount: false,
     amount: 0,
@@ -73,6 +74,7 @@ export default function ShoppingCartContextProvider({ children }) {
         removeItem,
         discountState,
         applyDiscount,
+        setShoppingCart,
       }}
     >
       {children}

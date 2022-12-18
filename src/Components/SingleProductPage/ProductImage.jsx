@@ -3,7 +3,7 @@ import { Box, Image } from "@chakra-ui/react";
 
 const ProductImage = ({ image }) => {
   return (
-    <Box bg="tomato">
+    <Box>
       <Image
         src={image}
         width="100%"
