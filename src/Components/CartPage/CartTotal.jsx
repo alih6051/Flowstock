@@ -1,21 +1,33 @@
 import React from "react";
 import { Box, Divider, Flex, Text, Button } from "@chakra-ui/react";
+import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
+import { useContext } from "react";
+import { formatCurrency } from "../../utils/formatCurrency";
+import { calculateDiscount } from "../../utils/calculateDiscount";
 
 const CartTotal = () => {
+  const { cartTotalItem, cartTotalAmount, discountState, applyDiscount } =
+    useContext(ShoppingCartContext);
+
   return (
     <Box border="1px solid #dadcdf" marginTop="10px" padding="20px">
       <Flex justifyContent="space-between">
         <Text as="b" fontSize="md">
-          (2) Items:
+          ({cartTotalItem()}) Items:
         </Text>
         <Text as="b" fontSize="md">
-          INR 58,922.21
+          {formatCurrency(cartTotalAmount())}
         </Text>
       </Flex>
       <Flex justifyContent="space-between">
         <Text fontSize="md">Discount:</Text>
         <Text fontSize="md" color="#c7202c">
-          - INR 5,805.05
+          -{" "}
+          {discountState.isDiscount
+            ? formatCurrency(
+                calculateDiscount(cartTotalAmount(), discountState.amount)
+              )
+            : "0.00"}
         </Text>
       </Flex>
       <Flex justifyContent="space-between" marginBottom="10px">
@@ -23,7 +35,10 @@ const CartTotal = () => {
           Subtotal:
         </Text>
         <Text as="b" fontSize="md">
-          INR 53,117.16
+          {formatCurrency(
+            cartTotalAmount() -
+              calculateDiscount(cartTotalAmount(), discountState.amount)
+          )}
         </Text>
       </Flex>
       <Divider />
@@ -32,7 +47,10 @@ const CartTotal = () => {
           Your Total:
         </Text>
         <Text as="b" fontSize="xl">
-          INR 53,117.16
+          {formatCurrency(
+            cartTotalAmount() -
+              calculateDiscount(cartTotalAmount(), discountState.amount)
+          )}
         </Text>
       </Flex>
       <Button

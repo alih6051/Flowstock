@@ -20,7 +20,7 @@ const SignInBtn = () => {
         </Button>
       </RouterLink>
       <Text fontSize="sm" marginTop="15px">
-        New to Overstock?{" "}
+        New to Flowstock?{" "}
         <RouterLink to="/myaccount">Create an account</RouterLink>
       </Text>
     </>

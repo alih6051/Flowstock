@@ -36,7 +36,7 @@ const CartItem = ({
       justifyContent="space-between"
       marginBottom="10px"
     >
-      <Box width="30%" bg="red">
+      <Box width="30%">
         <Image src={image} alt={title} />
       </Box>
       <Box width="67%" flexGrow="grow">

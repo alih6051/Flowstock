@@ -10,8 +10,62 @@ import {
   Input,
   Flex,
 } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
+import { useContext } from "react";
+import { useToast } from "@chakra-ui/react";
 
 const PromoCode = () => {
+  const [coupons, setCoupons] = useState([]);
+  const [text, setText] = useState("");
+  const [loading, setLoading] = useState(false);
+  const toast = useToast();
+
+  const { applyDiscount } = useContext(ShoppingCartContext);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/coupons")
+      .then(({ data }) => setCoupons(data))
+      .catch((err) => console.log(err));
+  }, []);
+
+  const handleCouponApply = () => {
+    setLoading(true);
+    setTimeout(() => {
+      let state = { isVaild: false, amount: 0 };
+      for (let i = 0; i < coupons.length; i++) {
+        if (coupons[i].code === text) {
+          state.isVaild = true;
+          state.amount = coupons[i].amount;
+          break;
+        }
+      }
+
+      if (state.isVaild) {
+        applyDiscount(state.amount);
+        setLoading(false);
+        toast({
+          title: "Coupon applied Successfully",
+          description: "Happy Shopping !",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+      } else {
+        setLoading(false);
+        toast({
+          title: "Invaild Coupon code",
+          description: "Please enter vaild coupon code",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    }, 500);
+  };
+
   return (
     <Accordion allowToggle>
       <AccordionItem border="1px solid #dadcdf">
@@ -30,14 +84,17 @@ const PromoCode = () => {
               focusBorderColor="black"
               size="lg"
               width="65%"
+              onChange={(e) => setText(e.target.value.toUpperCase())}
             />
             <Button
               colorScheme="teal"
               variant="outline"
-              borderColor="black"
+              border="2px solid black"
               color="#2f3337"
               size="lg"
               width="30%"
+              onClick={handleCouponApply}
+              isLoading={loading}
             >
               Apply
             </Button>

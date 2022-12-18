@@ -3199,5 +3199,16 @@
   "customers": [],
   "admin_users": [],
   "cart": [],
-  "coupons": []
+  "coupons": [
+    {
+      "id": 1,
+      "code": "FLOW20",
+      "amount": 20
+    },
+    {
+      "id": 2,
+      "code": "MASAI30",
+      "amount": 30
+    }
+  ]
 }

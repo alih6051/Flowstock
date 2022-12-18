@@ -5,6 +5,10 @@ export const ShoppingCartContext = createContext();
 
 export default function ShoppingCartContextProvider({ children }) {
   const [shoppingCart, setShoppingCart] = useState([]);
+  const [discountState, setDiscountState] = useState({
+    isDiscount: false,
+    amount: 0,
+  });
   console.log("From Cart Context", shoppingCart);
 
   // Add to Cart
@@ -21,12 +25,20 @@ export default function ShoppingCartContextProvider({ children }) {
     }
   };
 
-  // Cart Total
+  // Cart Total Item
   const cartTotalItem = () => {
     let total = shoppingCart.reduce((acc, el) => {
       return acc + el.quantity;
     }, 0);
     return total;
+  };
+
+  // Cart Total amount
+  const cartTotalAmount = () => {
+    let totalAmount = shoppingCart.reduce((acc, el) => {
+      return acc + el.price * el.quantity;
+    }, 0);
+    return totalAmount;
   };
 
   // Update Item Quantity
@@ -45,14 +57,22 @@ export default function ShoppingCartContextProvider({ children }) {
     setShoppingCart(updated_cart);
   };
 
+  // Apply Discount
+  const applyDiscount = (val) => {
+    setDiscountState({ isDiscount: true, amount: val });
+  };
+
   return (
     <ShoppingCartContext.Provider
       value={{
         shoppingCart,
         addToCart,
         cartTotalItem,
+        cartTotalAmount,
         updateItemQuantity,
         removeItem,
+        discountState,
+        applyDiscount,
       }}
     >
       {children}
