@@ -16,7 +16,7 @@ const SingleProduct = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000${pathname}`)
+      .get(`https://rich-lime-katydid-boot.cyclic.app${pathname}`)
       .then(({ data }) => {
         setProduct(data);
         setLoading(false);

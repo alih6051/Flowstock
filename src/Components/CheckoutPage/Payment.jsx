@@ -36,7 +36,7 @@ const Payment = () => {
       <FormControl marginTop="10px">
         <FormLabel>Exp Month</FormLabel>
         <Input
-          type="number"
+          type="text"
           borderRadius="3px"
           placeholder="November"
           focusBorderColor="black"

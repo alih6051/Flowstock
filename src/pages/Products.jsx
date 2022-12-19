@@ -20,7 +20,9 @@ const Products = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:3000${pathname}?${order}_page=${page}&_limit=20`)
+      .get(
+        `https://rich-lime-katydid-boot.cyclic.app${pathname}?${order}_page=${page}&_limit=20`
+      )
       .then(({ data }) => {
         setProductData(data);
         setLoading(false);

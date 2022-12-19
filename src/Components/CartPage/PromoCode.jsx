@@ -26,7 +26,7 @@ const PromoCode = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/coupons")
+      .get("https://rich-lime-katydid-boot.cyclic.app/coupons")
       .then(({ data }) => setCoupons(data))
       .catch((err) => console.log(err));
   }, []);
