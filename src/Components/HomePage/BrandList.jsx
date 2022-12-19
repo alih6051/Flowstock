@@ -4,7 +4,7 @@ import BrandItem from "./BrandItem";
 
 const BrandList = ({ title, brandList }) => {
   return (
-    <Container maxW="92%" paddingX="50px" paddingY="50px" textAlign="center">
+    <Container maxW="92%" paddingX="0" paddingY="50px" textAlign="center">
       <Heading as="h3" size="lg" marginBottom="50px">
         {title}
       </Heading>

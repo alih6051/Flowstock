@@ -8,7 +8,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-const Payment = () => {
+const Payment = ({ handleFormData }) => {
   return (
     <Box width={["100%", "100%", "50%", "50%", "50%", "50%"]} padding="20px">
       <Text as="b" color="#444" fontSize="2xl">
@@ -21,6 +21,8 @@ const Payment = () => {
           borderRadius="3px"
           placeholder="Hasan"
           focusBorderColor="black"
+          name="name"
+          onChange={handleFormData}
         />
       </FormControl>
       <FormControl marginTop="10px">
@@ -31,16 +33,18 @@ const Payment = () => {
           placeholder="1111-2222-3333-4444"
           focusBorderColor="black"
           name="card"
+          onChange={handleFormData}
         />
       </FormControl>
       <FormControl marginTop="10px">
         <FormLabel>Exp Month</FormLabel>
         <Input
-          type="text"
+          type="number"
           borderRadius="3px"
-          placeholder="November"
+          placeholder="11"
           focusBorderColor="black"
           name="month"
+          onChange={handleFormData}
         />
       </FormControl>
       <Flex justifyContent="space-between" alignItems="center">
@@ -52,6 +56,7 @@ const Payment = () => {
             placeholder="2025"
             focusBorderColor="black"
             name="year"
+            onChange={handleFormData}
           />
         </FormControl>
         <FormControl marginTop="10px" width="42%">
@@ -62,6 +67,7 @@ const Payment = () => {
             placeholder="598"
             focusBorderColor="black"
             name="cvv"
+            onChange={handleFormData}
           />
         </FormControl>
       </Flex>

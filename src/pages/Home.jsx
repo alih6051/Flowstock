@@ -4,6 +4,7 @@ import BrandList from "../Components/HomePage/BrandList";
 import CategoryList from "../Components/HomePage/CategoryList";
 import MainCarousel from "../Components/HomePage/MainCarousel";
 import TrendingSearchList from "../Components/HomePage/TrendingSearchList";
+import { Show, Hide } from "@chakra-ui/react";
 
 const Home = () => {
   const brand_data = [
@@ -130,19 +131,35 @@ const Home = () => {
   return (
     <>
       {/* Banner 1 */}
-      <Banner
-        image="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-1400x550_DSK-INTL.jpg"
-        textImage="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-1400x550_DSK-INTL-2.svg"
-      />
+      <Hide below="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-1400x550_DSK-INTL.jpg"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-1400x550_DSK-INTL-2.svg"
+        />
+      </Hide>
+      <Hide above="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-767x800_MBL-INTL.jpg"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-HP-A1-INTL-V2-767x800_MBL-INTL-2.svg"
+        />
+      </Hide>
 
       {/* brand logos */}
       <BrandList title="Brands We Love" brandList={brand_data} />
 
       {/* Banner 2 */}
-      <Banner
-        image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-1400x550_Promo1.jpg?imwidth=1920"
-        textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-1400x550_Promo1.svg?imwidth=3840"
-      />
+      <Hide below="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-1400x550_Promo1.jpg?imwidth=1920"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-1400x550_Promo1.svg?imwidth=3840"
+        />
+      </Hide>
+      <Hide above="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-767x800_Promo1.jpg?imwidth=1080"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-LivingRoomFurniture-767x800_Promo1.svg?imwidth=1080"
+        />
+      </Hide>
 
       {/* Categories list */}
       <CategoryList
@@ -154,10 +171,18 @@ const Home = () => {
       <MainCarousel title="Trending This Season" list={carousel_data} />
 
       {/* Banner 3 */}
-      <Banner
-        image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-1400x550_Promo2.jpg?imwidth=1920"
-        textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-1400x550_Promo2.svg?imwidth=3840"
-      />
+      <Hide below="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-1400x550_Promo2.jpg?imwidth=1920"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-1400x550_Promo2.svg?imwidth=3840"
+        />
+      </Hide>
+      <Hide above="md">
+        <Banner
+          image="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-767x800_Promo2.jpg?imwidth=828"
+          textImage="https://ak1.ostkcdn.com/img/mxc/12122022-SB-BedroomFurniture-767x800_Promo2v2.svg?imwidth=828"
+        />
+      </Hide>
 
       {/* Trending Searches */}
       <TrendingSearchList title="Trending Searches" list={trending_data} />

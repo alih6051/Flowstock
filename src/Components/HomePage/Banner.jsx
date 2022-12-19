@@ -4,7 +4,7 @@ import { Box, Container, Image } from "@chakra-ui/react";
 
 const Banner = ({ image, textImage }) => {
   return (
-    <RouterLink>
+    <RouterLink to="/furniture">
       <Container maxW="92%" padding="0" style={{ position: "relative" }}>
         <Image boxSize="100%" objectFit="cover" src={image} alt="Dan Abramov" />
         <Box

@@ -1,5 +1,12 @@
 import React from "react";
-import { Container, Grid, GridItem, Button, Box } from "@chakra-ui/react";
+import {
+  Container,
+  Grid,
+  GridItem,
+  Button,
+  Box,
+  useToast,
+} from "@chakra-ui/react";
 import Header from "../Components/CheckoutPage/Header";
 import FormBody from "../Components/CheckoutPage/FormBody";
 import CartTotal from "../Components/CartPage/CartTotal";
@@ -9,11 +16,50 @@ import { useState } from "react";
 const Checkout = () => {
   const [otpMenu, setOtpMenu] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    city: "",
+    state: "",
+    zip: "",
+    card: "",
+    month: "",
+    year: "",
+    cvv: "",
+  });
+
+  const toast = useToast();
+
+  const handleFormData = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handlePayment = () => {
     setLoading(true);
     setTimeout(() => {
-      setOtpMenu(true);
+      if (
+        formData.name !== "" &&
+        formData.address !== "" &&
+        formData.email !== "" &&
+        formData.city !== "" &&
+        formData.state !== "" &&
+        formData.zip !== "" &&
+        formData.card !== "" &&
+        formData.month !== "" &&
+        formData.year !== "" &&
+        formData.cvv !== ""
+      ) {
+        setOtpMenu(true);
+      } else {
+        toast({
+          title: "Please fill all the mandatory information.",
+          status: "error",
+          position: "top-right",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
       setLoading(false);
     }, 1500);
   };
@@ -34,7 +80,7 @@ const Checkout = () => {
         gap={4}
       >
         <GridItem colSpan={[2, 2, 2, 3, 3, 3]} border="1px solid #dadcdf">
-          <FormBody />
+          <FormBody handleFormData={handleFormData} />
           <Box padding="20px">
             <Button
               width="100%"

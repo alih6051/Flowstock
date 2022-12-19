@@ -8,7 +8,7 @@ import {
   Flex,
 } from "@chakra-ui/react";
 
-const Shipping = () => {
+const Shipping = ({ handleFormData }) => {
   return (
     <Box width={["100%", "100%", "50%", "50%", "50%", "50%"]} padding="20px">
       <Text as="b" color="#444" fontSize="2xl">
@@ -32,6 +32,7 @@ const Shipping = () => {
           placeholder="Enter your email"
           focusBorderColor="black"
           name="email"
+          onChange={handleFormData}
         />
       </FormControl>
       <FormControl marginTop="10px">
@@ -42,6 +43,7 @@ const Shipping = () => {
           placeholder="Enter your address"
           focusBorderColor="black"
           name="address"
+          onChange={handleFormData}
         />
       </FormControl>
       <FormControl marginTop="10px">
@@ -52,6 +54,7 @@ const Shipping = () => {
           placeholder="City"
           focusBorderColor="black"
           name="city"
+          onChange={handleFormData}
         />
       </FormControl>
       <Flex justifyContent="space-between" alignItems="center">
@@ -62,7 +65,8 @@ const Shipping = () => {
             borderRadius="3px"
             placeholder="State"
             focusBorderColor="black"
-            name="city"
+            name="state"
+            onChange={handleFormData}
           />
         </FormControl>
         <FormControl marginTop="10px" width="42%">
@@ -73,6 +77,7 @@ const Shipping = () => {
             placeholder="110001"
             focusBorderColor="black"
             name="zip"
+            onChange={handleFormData}
           />
         </FormControl>
       </Flex>
