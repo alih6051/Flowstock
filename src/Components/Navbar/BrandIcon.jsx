@@ -55,7 +55,9 @@ const BrandIcon = () => {
             <DrawerContent>
               <DrawerCloseButton color="white" />
               <DrawerHeader bg="rgb(255, 31, 44)">
-                <Image src={logoWhite} width="30px"></Image>
+                <LinkRouter to="/">
+                  <Image src={logoWhite} width="30px"></Image>
+                </LinkRouter>
               </DrawerHeader>
 
               <DrawerBody>
@@ -66,7 +68,9 @@ const BrandIcon = () => {
               </DrawerBody>
             </DrawerContent>
           </Drawer>
-          <Image src={logoRed} width="40px" marginRight="20px"></Image>
+          <LinkRouter to="/">
+            <Image src={logoRed} width="40px" marginRight="20px"></Image>
+          </LinkRouter>
         </Flex>
       </Hide>
     </>
