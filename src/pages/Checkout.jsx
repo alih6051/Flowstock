@@ -21,8 +21,19 @@ const Checkout = () => {
   return (
     <Container maxW="5xl">
       <Header />
-      <Grid h="200px" templateColumns="repeat(4, 1fr)" gap={4}>
-        <GridItem colSpan={3} border="1px solid #dadcdf">
+      <Grid
+        h="200px"
+        templateColumns={[
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(4, 1fr)",
+          "repeat(4, 1fr)",
+          "repeat(4, 1fr)",
+        ]}
+        gap={4}
+      >
+        <GridItem colSpan={[2, 2, 2, 3, 3, 3]} border="1px solid #dadcdf">
           <FormBody />
           <Box padding="20px">
             <Button
@@ -41,7 +52,7 @@ const Checkout = () => {
             </Button>
           </Box>
         </GridItem>
-        <GridItem colSpan={1}>
+        <GridItem colSpan={[2, 2, 2, 1, 1, 1]}>
           <CartTotal />
           {otpMenu && <OtpVerify />}
         </GridItem>

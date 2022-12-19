@@ -32,7 +32,7 @@ const SingleProduct = () => {
       {loading ? (
         <Loader />
       ) : (
-        <SimpleGrid columns={2} spacing={10}>
+        <SimpleGrid columns={[1, 1, 1, 2, 2, 2]} spacing={10}>
           <ProductImage {...product} />
           <ProductDetail {...product} />
         </SimpleGrid>

@@ -8,7 +8,17 @@ const TrendingSearchList = ({ title, list }) => {
       <Heading as="h3" size="lg" marginBottom="50px">
         {title}
       </Heading>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+      <Grid
+        templateColumns={[
+          "repeat(1, 1fr)",
+          "repeat(1, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(3, 1fr)",
+        ]}
+        gap={6}
+      >
         {list.map((item, i) => (
           <TrendingSearchItem key={i} title={item} />
         ))}

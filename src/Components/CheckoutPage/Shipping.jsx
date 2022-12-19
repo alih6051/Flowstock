@@ -10,7 +10,7 @@ import {
 
 const Shipping = () => {
   return (
-    <Box width="50%" padding="20px">
+    <Box width={["100%", "100%", "50%", "50%", "50%", "50%"]} padding="20px">
       <Text as="b" color="#444" fontSize="2xl">
         Billing Address
       </Text>

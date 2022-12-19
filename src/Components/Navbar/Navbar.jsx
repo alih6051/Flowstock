@@ -5,9 +5,9 @@ import AccountIcon from "./AccountIcon";
 import WishlistIcon from "./WishlistIcon";
 import CartIcon from "./CartIcon";
 import Navlink from "./Navlink";
-import { Container, Flex, Box } from "@chakra-ui/react";
+import { Container, Flex, Box, Hide } from "@chakra-ui/react";
 
-const Links = [
+export const Links = [
   "Furniture",
   "Kitchen",
   "Lighting",
@@ -26,7 +26,12 @@ const Links = [
 const Navbar = () => {
   return (
     <Box style={{ position: "sticky", top: "0", zIndex: "1001" }}>
-      <Container maxW="full" bg="#fff" paddingY="14px">
+      <Container
+        maxW="full"
+        bg="#fff"
+        paddingY="14px"
+        borderBottom="1px solid #dadcdf"
+      >
         <Flex justifyContent="space-between" alignItems="center">
           <Box>
             <BrandIcon />
@@ -44,17 +49,19 @@ const Navbar = () => {
         </Flex>
       </Container>
       {/* Navigations links */}
-      <Container maxW="full" bg="#fff" borderY="1px solid #dadcdf">
-        <Flex
-          justifyContent="space-between"
-          alignItems="center"
-          flexWrap="wrap"
-        >
-          {Links.map((link, i) => (
-            <Navlink key={i} name={link} />
-          ))}
-        </Flex>
-      </Container>
+      <Hide below="lg">
+        <Container maxW="full" bg="#fff" borderY="1px solid #dadcdf">
+          <Flex
+            justifyContent="space-between"
+            alignItems="center"
+            flexWrap="wrap"
+          >
+            {Links.map((link, i) => (
+              <Navlink key={i} name={link} />
+            ))}
+          </Flex>
+        </Container>
+      </Hide>
     </Box>
   );
 };

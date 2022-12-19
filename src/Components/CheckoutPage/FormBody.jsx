@@ -5,7 +5,7 @@ import Payment from "./Payment";
 
 const FormBody = () => {
   return (
-    <Flex>
+    <Flex flexDirection={["column", "column", "row", "row", "row", "row"]}>
       <Shipping />
       <Payment />
     </Flex>

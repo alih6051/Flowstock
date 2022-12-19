@@ -8,7 +8,17 @@ const BrandList = ({ title, brandList }) => {
       <Heading as="h3" size="lg" marginBottom="50px">
         {title}
       </Heading>
-      <Grid templateColumns="repeat(3, 1fr)" gap={6}>
+      <Grid
+        templateColumns={[
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(2, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(3, 1fr)",
+          "repeat(3, 1fr)",
+        ]}
+        gap={6}
+      >
         {brandList.map((img, i) => (
           <BrandItem key={i} img={img} />
         ))}

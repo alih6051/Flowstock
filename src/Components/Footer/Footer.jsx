@@ -1,4 +1,4 @@
-import { Container, Flex, Box, Text } from "@chakra-ui/react";
+import { Container, Flex, Box, Text, Show } from "@chakra-ui/react";
 import FooterCard from "./FooterCard";
 import React from "react";
 
@@ -66,7 +66,7 @@ const Footer = () => {
               799 Coliseum Way Midvale, UT 84047 | 1-800-843-2446
             </Text>
           </Box>
-          <Box>
+          <Show above="md">
             <Flex>
               <Text fontSize="sm" paddingX="20px">
                 Privacy Policy
@@ -81,7 +81,7 @@ const Footer = () => {
                 Ships to : INDIA
               </Text>
             </Flex>
-          </Box>
+          </Show>
         </Flex>
       </Container>
     </>
