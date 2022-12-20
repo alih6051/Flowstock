@@ -1,70 +1,39 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Overstock - Clone
 
-## Available Scripts
+Overstock.com, Inc. is an American internet retailer selling primarily furniture headquartered in Midvale, Utah, near Salt Lake City. Businessman Patrick M. 
 
-In the project directory, you can run:
+The project has been completed within the duration of 5 days. I learnt a lot during the course of this project.
 
-### `npm start`
+Original website link: https://www.overstock.com
 
-Runs the app in the development mode.\
-Open [https://rich-lime-katydid-boot.cyclic.app](https://rich-lime-katydid-boot.cyclic.app) to view it in your browser.
+Link of our deployed project: https://boring-wine-45.vercel.app/
+## Tech Stack and Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- React
+- Json-Server
+- Chakra UI
+- Styled Components
+- Protected Routes(only accesible after login)
+- Responsiveness
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Glimpse and screenshots of our cloned website:
 
-### `npm run build`
+Mobile View
+![App Screenshot](https://i.ibb.co/sC0r9fR/Screenshot-2022-12-20-13-26-53-738-com-android-chrome.jpg)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Home Page
+![App Screenshot](https://i.ibb.co/xqxHXtr/Home.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Product Page
+![App Screenshot](https://i.ibb.co/1rLZBSC/Product.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Account Page
+![App Screenshot](https://i.ibb.co/zF9tmW2/acc.png)
 
-### `npm run eject`
+Cart Page
+![App Screenshot](https://i.ibb.co/LrnShrJ/cart.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Checkout Page
+![App Screenshot](https://i.ibb.co/g90BYPn/checkout.png)
