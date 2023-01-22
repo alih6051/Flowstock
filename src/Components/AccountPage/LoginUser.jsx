@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import {
   Text,
   GridItem,
@@ -20,6 +20,20 @@ const LoginUser = () => {
 
   const toast = useToast();
 
+  const loginWithToken = (token) => {
+    axios
+      .get("https://enthusiastic-pink-scrubs.cyclic.app/getProfile", {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        handleLogin(res.data[0], token);
+      })
+      .catch((err) => console.log(err));
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.type]: e.target.value });
   };
@@ -27,7 +41,7 @@ const LoginUser = () => {
   const handleLoginUser = () => {
     setLoading(true);
     axios
-      .post("https://dull-tan-antelope-tux.cyclic.app/signIn", formData)
+      .post("https://enthusiastic-pink-scrubs.cyclic.app/login", formData)
       .then(({ data }) => {
         toast({
           title: data.message,
@@ -37,7 +51,7 @@ const LoginUser = () => {
           isClosable: true,
         });
         setLoading(false);
-        handleLogin(data.user[0], data.token);
+        loginWithToken(data.token);
       })
       .catch((err) => {
         toast({

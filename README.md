@@ -1,13 +1,13 @@
-
 # Overstock - Clone
 
-Overstock.com, Inc. is an American internet retailer selling primarily furniture headquartered in Midvale, Utah, near Salt Lake City. Businessman Patrick M. 
+Overstock.com, Inc. is an American internet retailer selling primarily furniture headquartered in Midvale, Utah, near Salt Lake City. Businessman Patrick M.
 
 The project has been completed within the duration of 5 days. I learnt a lot during the course of this project.
 
 Original website link: https://www.overstock.com
 
 Link of our deployed project: https://boring-wine-45.vercel.app/
+
 ## Tech Stack and Features
 
 - React
@@ -16,7 +16,6 @@ Link of our deployed project: https://boring-wine-45.vercel.app/
 - Styled Components
 - Protected Routes(only accesible after login)
 - Responsiveness
-
 
 ## Glimpse and screenshots of our cloned website:
 
