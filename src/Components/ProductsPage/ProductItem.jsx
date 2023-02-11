@@ -33,7 +33,7 @@ const ProductItem = ({ image, price, rating, title, id }) => {
   return (
     <GridItem border="1px solid #dadcdf">
       <RouterLink to={`${pathname}/${id}`}>
-        <Image src={image} alt={title} />
+        <Image src={image} alt={title} width="100%" />
         <Box padding="7px" minH="130px">
           <Text fontSize="lg" color="#c7202c">
             Starting at {formatCurrency(price)}

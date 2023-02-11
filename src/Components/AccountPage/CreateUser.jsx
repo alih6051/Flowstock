@@ -84,8 +84,15 @@ const CreateUser = () => {
             onChange={(e) => handleChange(e)}
           />
         </FormControl>
-        <Flex justifyContent="space-between">
-          <FormControl isRequired w="45%">
+        <Flex
+          justifyContent="space-between"
+          flexDirection={{ base: "column", sm: "column", md: "row" }}
+        >
+          <FormControl
+            isRequired
+            w={{ base: "100%", sm: "100%", md: "45%" }}
+            mb={{ base: "20px", sm: "20px", md: "0" }}
+          >
             <FormLabel>Create Password</FormLabel>
             <Input
               placeholder="Password"
@@ -95,7 +102,7 @@ const CreateUser = () => {
               borderRadius="3px"
             />
           </FormControl>
-          <FormControl isRequired w="45%">
+          <FormControl isRequired w={{ base: "100%", sm: "100%", md: "45%" }}>
             <FormLabel>Confirm Password</FormLabel>
             <Input
               placeholder="Confirm Password"

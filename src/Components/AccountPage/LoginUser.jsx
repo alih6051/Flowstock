@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import {
   Text,
   GridItem,
@@ -12,11 +12,18 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { AuthContext } from "../../Context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LoginUser = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
-  const { handleLogin } = useContext(AuthContext);
+  const { handleLogin, authState } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+
+  if (authState.isAuth) {
+    navigate(-1);
+  }
 
   const toast = useToast();
 

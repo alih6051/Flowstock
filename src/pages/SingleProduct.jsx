@@ -28,7 +28,12 @@ const SingleProduct = () => {
   }, [pathname]);
 
   return (
-    <Container maxW="60%" color="#262626" marginY="30px" paddingX="0">
+    <Container
+      maxW={{ base: "90%", sm: "90%", md: "60%" }}
+      color="#262626"
+      marginY="30px"
+      paddingX="0"
+    >
       {loading ? (
         <Loader />
       ) : (

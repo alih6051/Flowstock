@@ -10,7 +10,6 @@ export default function ShoppingCartContextProvider({ children }) {
     isDiscount: false,
     amount: 0,
   });
-  console.log("From Cart Context", shoppingCart);
 
   // Add to Cart
   const addToCart = (item) => {

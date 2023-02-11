@@ -4,14 +4,40 @@ import { ShoppingCartContext } from "../../Context/ShoppingCartContext";
 import { useContext } from "react";
 import { formatCurrency } from "../../utils/formatCurrency";
 import { calculateDiscount } from "../../utils/calculateDiscount";
-import { useLocation } from "react-router-dom";
 import { Link as RouterLink } from "react-router-dom";
+import { AuthContext } from "../../Context/AuthContext";
+import { useState } from "react";
+import axios from "axios";
 
 const CartTotal = () => {
-  const { cartTotalItem, cartTotalAmount, discountState } =
+  const { authState } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+
+  const { cartTotalItem, cartTotalAmount, discountState, shoppingCart } =
     useContext(ShoppingCartContext);
 
-  const { pathname } = useLocation();
+  const createStripeCheckout = async () => {
+    setLoading(true);
+    try {
+      axios
+        .post(
+          "https://tame-pear-firefly-kit.cyclic.app/stripe-create-checkout",
+          shoppingCart
+        )
+        .then((res) => {
+          setLoading(false);
+          window.location.href = res.data.url;
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err.response.data.error);
+          return Promise.reject(err);
+        });
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
 
   return (
     <Box border="1px solid #dadcdf" padding="20px">
@@ -57,8 +83,24 @@ const CartTotal = () => {
           )}
         </Text>
       </Flex>
-      {pathname !== "/checkout" ? (
-        <RouterLink to="/checkout">
+      {authState.isAuth ? (
+        <Button
+          disabled={shoppingCart.length === 0}
+          width="100%"
+          bg="#2f3337"
+          color="white"
+          _hover={{ bg: "black" }}
+          _active={{ bg: "black" }}
+          size="lg"
+          marginTop="20px"
+          isLoading={loading}
+          loadingText="Processing"
+          onClick={createStripeCheckout}
+        >
+          Check Out
+        </Button>
+      ) : (
+        <RouterLink to="/myaccount">
           <Button
             width="100%"
             bg="#2f3337"
@@ -68,10 +110,10 @@ const CartTotal = () => {
             size="lg"
             marginTop="20px"
           >
-            Check Out
+            Sign In first to checkout
           </Button>
         </RouterLink>
-      ) : null}
+      )}
     </Box>
   );
 };
