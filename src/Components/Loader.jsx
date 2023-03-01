@@ -1,18 +1,23 @@
 import React from "react";
-import { Flex, Spinner } from "@chakra-ui/react";
+import { Box, SimpleGrid, Skeleton } from "@chakra-ui/react";
 
 const Loader = () => {
   return (
-    <Flex
-      width="100%"
-      thickness="4px"
-      speed="0.4s"
-      color="blue.500"
-      justifyContent="center"
-      alignItems="center"
+    <SimpleGrid
+      columns={{ base: 1, sm: 1, md: 2, lg: 3, xl: 4 }}
+      spacing={7}
+      paddingY="20px"
     >
-      <Spinner size="xl" />
-    </Flex>
+      {[...Array(20)].map((el) => (
+        <Box>
+          <Skeleton height="300px" />
+          <Skeleton height="20px" mt={2} width={170} />
+          <Skeleton height="20px" mt={2} width={100} />
+          <Skeleton height="20px" mt={2} />
+          <Skeleton height="40px" mt={2} />
+        </Box>
+      ))}
+    </SimpleGrid>
   );
 };
 
