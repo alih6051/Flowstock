@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router";
 import { Container, SimpleGrid } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-import Loader from "../Components/Loader";
+import LoaderSingle from "../Components/LoaderSingle";
 import axios from "axios";
 import ProductImage from "../Components/SingleProductPage/ProductImage";
 import ProductDetail from "../Components/SingleProductPage/ProductDetail";
@@ -35,7 +35,7 @@ const SingleProduct = () => {
       paddingX="0"
     >
       {loading ? (
-        <Loader />
+        <LoaderSingle />
       ) : (
         <SimpleGrid columns={[1, 1, 1, 2, 2, 2]} spacing={10}>
           <ProductImage {...product} />
