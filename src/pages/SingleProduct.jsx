@@ -16,7 +16,7 @@ const SingleProduct = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`https://rich-lime-katydid-boot.cyclic.app${pathname}`)
+      .get(`https://flowstock-json-server.onrender.com${pathname}`)
       .then(({ data }) => {
         setProduct(data);
         setLoading(false);

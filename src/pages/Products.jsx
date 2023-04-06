@@ -21,7 +21,7 @@ const Products = () => {
     setLoading(true);
     axios
       .get(
-        `https://rich-lime-katydid-boot.cyclic.app${pathname}?${order}_page=${page}&_limit=20`
+        `https://flowstock-json-server.onrender.com${pathname}?${order}_page=${page}&_limit=20`
       )
       .then(({ data }) => {
         setProductData(data);

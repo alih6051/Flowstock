@@ -26,7 +26,7 @@ const PromoCode = () => {
 
   useEffect(() => {
     axios
-      .get("https://rich-lime-katydid-boot.cyclic.app/coupons")
+      .get("https://flowstock-json-server.onrender.com/coupons")
       .then(({ data }) => setCoupons(data))
       .catch((err) => console.log(err));
   }, []);
