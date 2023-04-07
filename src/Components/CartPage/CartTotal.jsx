@@ -21,7 +21,7 @@ const CartTotal = () => {
     try {
       axios
         .post(
-          "https://tame-pear-firefly-kit.cyclic.app/stripe-create-checkout",
+          "https://flowstock-stripe-backend.onrender.com/stripe-create-checkout",
           shoppingCart
         )
         .then((res) => {
