@@ -27,20 +27,6 @@ const LoginUser = () => {
 
   const toast = useToast();
 
-  const loginWithToken = (token) => {
-    axios
-      .get("https://enthusiastic-pink-scrubs.cyclic.app/getProfile", {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        handleLogin(res.data[0], token);
-      })
-      .catch((err) => console.log(err));
-  };
-
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.type]: e.target.value });
   };
@@ -48,7 +34,7 @@ const LoginUser = () => {
   const handleLoginUser = () => {
     setLoading(true);
     axios
-      .post("https://enthusiastic-pink-scrubs.cyclic.app/login", formData)
+      .post("https://ill-puce-bunny-cape.cyclic.app/api/users/login", formData)
       .then(({ data }) => {
         toast({
           title: data.message,
@@ -58,7 +44,7 @@ const LoginUser = () => {
           isClosable: true,
         });
         setLoading(false);
-        loginWithToken(data.token);
+        handleLogin({ name: data.name, email: data.email }, data.token);
       })
       .catch((err) => {
         toast({

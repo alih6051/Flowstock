@@ -31,7 +31,10 @@ const CreateUser = () => {
   const handleCreateUser = () => {
     setLoading(true);
     axios
-      .post("https://enthusiastic-pink-scrubs.cyclic.app/signup", formData)
+      .post(
+        "https://ill-puce-bunny-cape.cyclic.app/api/users/register",
+        formData
+      )
       .then((res) => {
         toast({
           title: "Account created.",
